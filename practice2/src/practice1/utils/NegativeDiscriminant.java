@@ -2,7 +2,13 @@ package practice1.utils;
 
 public class NegativeDiscriminant extends Exception {
 
-    public NegativeDiscriminant(String message) {
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+
+	public NegativeDiscriminant(String message) {
         super(message);
     }
 
