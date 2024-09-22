@@ -1,0 +1,5 @@
+package lab1;
+
+public enum McMobType {
+	PIG, COW, SHEEP, CHICKEN, ZOMBIE, CREEPER, SPIDER, SKELETON, ENDERMAN;
+}
