@@ -18,6 +18,8 @@ public class MinecraftMob {
 	public MinecraftMob(McMobType mobType) {
 		this.mobType = mobType;
 	}
+	
+	//getter and setter for hp - used in constructors
 
 	public int getHp() {
 		return this.hp;

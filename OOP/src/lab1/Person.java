@@ -34,9 +34,9 @@ public class Person {
 		this(name, age);
 		this.gender = gender;
 	}
+	
+	//getters and setters
 
-	// getters and setters
-	// TODO write these
 	public String getName() {
 		return this.name;
 	}
@@ -56,7 +56,8 @@ public class Person {
 	public Gender getGender() {
 		return this.gender;
 	}
-	//
+	
+	// toString
 
 	public String toString() {
 		return String.format("Person\nName: %s\nAge: %d\nGender: %s", this.name, this.age, this.gender);

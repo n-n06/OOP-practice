@@ -11,10 +11,7 @@ public class GradeBook {
 
 	private Map<Student, Integer> studentGrades = new HashMap<>(); // store grades in hashmap bc O(1)
 
-	/*
-	 * TODO : 1 constructors 2 getters and setters 3 toString 4 store grades
-	 */
-
+	// utility function - sets default values in a map
 	private void setInitGrades() {
 		for (Student s : this.studentList) {
 			this.studentGrades.put(s, 0);
@@ -122,7 +119,6 @@ public class GradeBook {
 	}
 
 	// barchart
-
 	public void displayBarchart() {
 		System.out.println("\nGrades distribution: ");
 		int[] ranges = new int[11];
@@ -149,6 +145,7 @@ public class GradeBook {
 	}
 
 	// display functions
+	
 	private String getGreeting() {
 		return "Welcome to the grade book for " + this.course.getName() + "!";
 	}

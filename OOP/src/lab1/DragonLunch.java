@@ -3,7 +3,6 @@ package lab1;
 import java.util.Vector;
 
 public class DragonLunch {
-
 	private Vector<Person> peopleList = new Vector<>();
 
 	public DragonLunch() {
@@ -38,7 +37,8 @@ public class DragonLunch {
 		int leftPointer = 0;
 
 		for (int rightPointer = 0; rightPointer < this.peopleList.size(); rightPointer++) {
-			if (leftPointer > 0 && this.peopleList.get(leftPointer - 1).getGender() == Gender.boy
+			if (leftPointer > 0 
+					&& this.peopleList.get(leftPointer - 1).getGender() == Gender.boy
 					&& this.peopleList.get(rightPointer).getGender() == Gender.girl) {
 				leftPointer--;
 			} else {
