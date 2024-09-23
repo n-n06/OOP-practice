@@ -56,6 +56,10 @@ public class Person {
 	public Gender getGender() {
 		return this.gender;
 	}
+
+  public void setGender(Gender g) {
+    this.gender = g;
+  }
 	
 	// toString
 

@@ -20,7 +20,7 @@ public class DragonLunch {
 	public String getPeopleListGenders() {
 		String output = "";
 		for (Person p : this.peopleList) {
-			if (p.getGender() == Gender.boy) {
+			if (p.getGender() == Gender.BOY) {
 				output += "B";
 			} else {
 				output += "G";
@@ -38,8 +38,8 @@ public class DragonLunch {
 
 		for (int rightPointer = 0; rightPointer < this.peopleList.size(); rightPointer++) {
 			if (leftPointer > 0 
-					&& this.peopleList.get(leftPointer - 1).getGender() == Gender.boy
-					&& this.peopleList.get(rightPointer).getGender() == Gender.girl) {
+					&& this.peopleList.get(leftPointer - 1).getGender() == Gender.BOY
+					&& this.peopleList.get(rightPointer).getGender() == Gender.GIRL) {
 				leftPointer--;
 			} else {
 				peopleList.set(leftPointer, peopleList.get(rightPointer));

@@ -5,10 +5,10 @@ public class DragonLunchTest {
 	public static void main(String[] args) {
 		DragonLunch d = new DragonLunch();
 
-		Person p1 = new Person(Gender.girl);
-		Person p2 = new Person(Gender.boy);
-		Person p3 = new Person(Gender.girl);
-		Person p4 = new Person(Gender.boy);
+		Person p1 = new Person(Gender.GIRL);
+		Person p2 = new Person(Gender.BOY);
+		Person p3 = new Person(Gender.GIRL);
+		Person p4 = new Person(Gender.BOY);
 //		Person p5 =  new Person(Gender.girl);
 //		Person p6 =  new Person(Gender.girl);
 
