@@ -6,7 +6,7 @@ public class MinecraftMobTest {
 		MinecraftMob cow = new MinecraftMob(McMobType.COW, false);
 		MinecraftMob zombie = new MinecraftMob(McMobType.ZOMBIE, 15, true);
 
-		System.out.println(zombie.isHostile());
+		System.out.println(zombie);
 
 		System.out.println(MinecraftMob.allMobsInfo());
 	}

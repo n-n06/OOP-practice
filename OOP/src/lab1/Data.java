@@ -4,7 +4,7 @@ public class Data {
 
 	private int size = 0;
 	private double sumOfValues = 0;
-	private double maxValue = 0;
+	private double maxValue = Integer.MIN_VALUE;
 
 	Data() {
 
@@ -29,6 +29,6 @@ public class Data {
 	}
 
 	public String toString() {
-		return "";
+		return String.format("Data storage:\nMax Value: %f\nAverage Value: %f", this.getMax(), this.getAverage());
 	}
 }
