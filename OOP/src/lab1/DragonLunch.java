@@ -38,8 +38,8 @@ public class DragonLunch {
 
 		for (int rightPointer = 0; rightPointer < this.peopleList.size(); rightPointer++) {
 			if (leftPointer > 0 
-					&& this.peopleList.get(leftPointer - 1).getGender() == Gender.BOY
-					&& this.peopleList.get(rightPointer).getGender() == Gender.GIRL) {
+					&& this.peopleList.get(leftPointer - 1).getGender() == Gender.GIRL
+					&& this.peopleList.get(rightPointer).getGender() == Gender.BOY) {
 				leftPointer--;
 			} else {
 				peopleList.set(leftPointer, peopleList.get(rightPointer));
