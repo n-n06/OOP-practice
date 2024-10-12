@@ -28,5 +28,9 @@ public class Cube extends Shape3D {
 	public double surfaceArea() {
 		return 6 * squareArea();
 	}
+	
+	public String toString() {
+		return super.toString() + "Cube, side: " + side;
+	}
 
 }

@@ -3,6 +3,10 @@ package lab2;
 public class Cylinder extends Shape3D {
 	private double radius, height;
 	
+	public Cylinder() {
+		
+	}
+	
 	public Cylinder(double r, double h) {
 		this.radius = r;
 		this.height = h;
@@ -36,8 +40,21 @@ public class Cylinder extends Shape3D {
 	
 	@Override
 	public double surfaceArea() {
-		double l = Math.sqrt(radius * radius + height * height);
-		return Math.PI * l * l + baseArea();
+		return 2 * baseArea() + 2 * Math.PI * radius  * height;
 	}
+
+	
+	public String toString() {
+		return super.toString() + "Cylinder, radius: " + radius + ", height: " + height;
+	}
+
+	public boolean equals(Object o) {
+		if (super.equals(o)) {
+			Cylinder c = (Cylinder) o;
+			return height == c.height && radius == c.radius; 
+		}
+		return false;
+	}
+
 	
 }

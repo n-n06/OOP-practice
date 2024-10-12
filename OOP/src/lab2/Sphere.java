@@ -3,6 +3,10 @@ package lab2;
 public class Sphere extends Shape3D {
 	private double radius;
 	
+	public Sphere() {
+		
+	}
+	
 	public Sphere(double r) {
 		this.radius = r;
 	}
@@ -26,8 +30,11 @@ public class Sphere extends Shape3D {
 
 	@Override
 	public double surfaceArea() {
-		// TODO Auto-generated method stub
 		return 4 * circleArea();
+	}
+	
+	public String toString() {
+		return super.toString() + "Sphere, radius: " + radius;
 	}
 
 }

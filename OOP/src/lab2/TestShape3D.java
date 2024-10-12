@@ -16,6 +16,7 @@ public class TestShape3D {
 		
 		
 		for (Shape3D s : shapeList) {
+			System.out.println(s);
 			System.out.println("Volume: " + s.volume());
 			System.out.println("Surface area: " + s.surfaceArea());
 		}
