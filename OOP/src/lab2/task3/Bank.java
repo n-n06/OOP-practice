@@ -30,12 +30,8 @@ public class Bank {
 	}
 	
 	public void closeAccount(int accNum) {
-		for (Account a : accounts) {
-			if (a.getAccountNumber() == accNum) {
-				accounts.remove(a);
-				return;
-			}
-		}
+		Account toBeDeleted = new Account(accNum);
+		closeAccount(toBeDeleted);
 	}
 	
 	public void update() {
@@ -54,6 +50,10 @@ public class Bank {
 	
 	public String toString() {
 		return "Bank: " + accounts;
+	}
+	
+	public void print() {
+		System.out.println(toString());
 	}
 	
 	public boolean equals(Object o) {

@@ -21,7 +21,7 @@ public class NoteRange {
 		if (this.getClass() != o.getClass()) return false;
 		
 		NoteRange nr = (NoteRange)o;
-		return this.toString().equals(nr.toString());
+		return this.lowNote.equals(nr.lowNote) && this.highNote.equals(nr.highNote);
 	}
 	
 	public String toString() {

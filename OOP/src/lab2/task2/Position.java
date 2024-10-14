@@ -1,5 +1,7 @@
 package lab2.task2;
 
+import java.util.Objects;
+
 /*
  * TODO:
  * 0. constructors
@@ -93,6 +95,10 @@ public class Position {
 		
 		return p.x == this.x && p.y == this.y;
 		
+	}
+	
+	public int hashCode() {
+		return Objects.hash(x) + Objects.hash(y);
 	}
 	
 

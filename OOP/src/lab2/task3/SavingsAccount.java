@@ -7,7 +7,7 @@ package lab2.task3;
  *4. getters, setters for interst rate 
  * 
  * */
-
+import java.util.Objects;
 
 public class SavingsAccount extends Account {
 	private double interestRate = 0.0;
@@ -39,5 +39,9 @@ public class SavingsAccount extends Account {
 		}
 		SavingsAccount s = (SavingsAccount) o;
 		return this.interestRate == s.interestRate;
+	}
+	
+	public int hashCode() {
+		return super.hashCode() + Objects.hash(interestRate);
 	}
 }

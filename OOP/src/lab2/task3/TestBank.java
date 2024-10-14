@@ -11,10 +11,9 @@ public class TestBank {
 		Account a1 = new Account(1);
 		Account a2 = new SavingsAccount(2, 14);
 		Account a3 = new CheckingAccount(3);
+		Account a4 = new Account(4);
 		
-		v.add(a1);
-		v.add(a2);
-		v.add(a3);
+		
 		
 		a1.deposit(100);
 		a2.deposit(100);
@@ -24,6 +23,13 @@ public class TestBank {
 		}
 		
 		Bank b = new Bank(v);
+		
+		b.openAccount(a1);
+		b.openAccount(a2);
+		b.openAccount(a3);
+		b.openAccount(a4);
+
+		b.print();
 		
 		for (Account a : b.getAccounts()) { 
 			a.print();
@@ -35,13 +41,17 @@ public class TestBank {
 			a.print();
 		}
 		
-		b.openAccount(new Account(4));
+		b.openAccount(new Account(5));
 		
-		System.out.println(b);
+		b.print();
 		
 		b.closeAccount(1);
 		
-		System.out.println(b);
+		b.print();
+		
+		b.closeAccount(new Account(2));
+		
+		b.print();
 
 	}
 

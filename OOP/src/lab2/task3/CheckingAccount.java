@@ -1,5 +1,7 @@
 package lab2.task3;
 
+import java.util.Objects;
+
 public class CheckingAccount extends Account {
 	//charge for each transaction
 	private int numOfTransactions = 0;
@@ -24,6 +26,7 @@ public class CheckingAccount extends Account {
 				throw new Exception("Not enough balance for transaction!");
 			} else {
 				super.withdraw(0.02);
+				numOfTransactions = 0;
 			}
 		}
 	}
@@ -32,9 +35,9 @@ public class CheckingAccount extends Account {
 		
 		/*after we crossed the free limit
 		 * 3 cases
-		 * 1. deposit enough money
-		 * 2. deposit moeny less than the fee
-		 * 3. invalid deposit 
+		 * 1. deposit enough money   10 dollars deposited - 0.02 dollars as a fee
+		 * 2. deposit moeny less than the fee we	we have 0 dollars, deposit 0.01, and we cannot even deposit right now
+		 * 3. invalid deposit 	provide negative deposit or something like that
 		 * 
 		 * */
 		numOfTransactions += 1;				
@@ -62,9 +65,9 @@ public class CheckingAccount extends Account {
 		/*
 		 * 
 		 * 3 cases
-		 * 1. enough money after withdrawal for the fee
-		 * 2. invalid withdrawal
-		 * 3. not enough money after withdrawal for the fee
+		 * 1. enough money after withdrawal for the fee		we had 10 dollars, withdrew 5 and the fee, 3.98 left
+		 * 2. invalid withdrawal	negative values or over the balance
+		 * 3. not enough money after withdrawal for the fee		we had 10 dollars, withdrew 10 and we cannot withdrew the fee, so cancel the withdrawal
 		 * 
 		 * 
 		 * 
@@ -100,6 +103,10 @@ public class CheckingAccount extends Account {
 		}
 		CheckingAccount c = (CheckingAccount) o;
 		return this.numOfTransactions == c.numOfTransactions;
+	}
+	
+	public int hashCode() {
+		return super.hashCode() + Objects.hash(numOfTransactions);
 	}
 
 }

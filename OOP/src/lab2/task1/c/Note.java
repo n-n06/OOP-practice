@@ -21,9 +21,17 @@ public class Note {
 	public int getOctave() {
 		return octave;
 	}
-
 	
 	public String toString() {
 		return name + octave;
+	}
+	
+	public boolean equals(Object o) {
+		if (o == this) return true;
+		if (o == null) return false;
+		if (this.getClass() != o.getClass()) return false;
+		
+		Note n = (Note) o;
+		return this.octave == n.octave && this.name.equals(n.name);
 	}
 }

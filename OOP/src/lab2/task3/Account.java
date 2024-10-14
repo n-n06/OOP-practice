@@ -1,5 +1,7 @@
 package lab2.task3;
 
+import java.util.Objects;
+
 /*
  * TODO
  * 1. constructors
@@ -79,10 +81,14 @@ public class Account {
 	public boolean equals(Object o) {
 		if (o == this) return true;
 		if (o == null) return false;
-		if (this.getClass() != o.getClass()) return false;
+//		if (this.getClass() != o.getClass()) return false; if we want to close accounts only using the id we should remove this line
 		
 		Account a = (Account) o;
-		return a.accNumber == this.accNumber && a.balance == this.balance; 
+		return a.accNumber == this.accNumber; //&& a.balance == this.balance; 
+	}
+	
+	public int hashCode() {
+		return Objects.hash(accNumber, balance);
 	}
 	
 	public final void print() {

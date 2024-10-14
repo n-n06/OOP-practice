@@ -67,7 +67,7 @@ public class MusicInstrument {
 		if (this.getClass() != o.getClass()) return false;
 		
 		MusicInstrument mi = (MusicInstrument) o;
-		return this.brand == mi.brand &&
+		return this.brand.equals(mi.brand) &&
 				this.yearMade == mi.yearMade &&
 				this.range.equals(mi.range);
 	}

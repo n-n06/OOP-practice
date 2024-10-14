@@ -28,5 +28,6 @@ public class Parallel extends Circuit {
 	public String toString() {
 		return "Parallel: [" + subcircuits[0] + ", " + subcircuits[1] + "]. " + super.toString();
 	}
+	
 
 }

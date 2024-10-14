@@ -1,5 +1,7 @@
 package lab2.task2;
 
+import java.util.Objects;
+
 public abstract class Piece {
 	Position pos;
 	//add color property with an Enum, rewrite move checks later)
@@ -14,6 +16,9 @@ public abstract class Piece {
 	
 	public boolean isLegalMove(Position newPos) {;
 		if (!newPos.isOnBoard()) {
+			return false;
+		}
+		if (this.pos.equals(newPos)) {
 			return false;
 		}
 		return true;
@@ -50,4 +55,8 @@ public abstract class Piece {
 		
 		return p.pos == this.pos;
 	};
+	
+	public int hashCode() {
+		return Objects.hash(this.pos) * Objects.hash(this.getClass());
+	}
 }

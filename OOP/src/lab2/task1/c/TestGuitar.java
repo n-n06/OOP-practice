@@ -8,7 +8,7 @@ public class TestGuitar {
 		Guitar g1 = new Guitar("Yamaha", 2021, "E2", "C5", 7);
 		Guitar g2 = new Guitar("Yamaha", 2021, 7);
 
-		g2.setRange("e2", "c5");
+		g2.setRange("E2", "C5");
 
 		System.out.println(g1.equals(g2));
 		

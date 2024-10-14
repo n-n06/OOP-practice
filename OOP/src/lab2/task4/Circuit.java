@@ -1,5 +1,7 @@
 package lab2.task4;
 
+import java.util.Objects;
+
 public abstract class Circuit {
 	public abstract double getResistance();
 	public abstract double getPotentialDiff();
@@ -26,4 +28,8 @@ public abstract class Circuit {
 				c.getResistance() == this.getResistance() &&
 				c.getCurrent() == this.getCurrent();
  	}
+	
+	public int hashCode() {
+		return Objects.hash(getResistance(), getPotentialDiff());
+	}
 }

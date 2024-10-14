@@ -5,6 +5,7 @@ public class TestChess {
 		Pawn pawn1 = new Pawn(new Position("c2"));
 		Pawn pawn2 = new Pawn(new Position("c3"));
 		
+		
 		System.out.println("2 step pawn move at the start (expected true): " + pawn1.isLegalMove(new Position("c4")));
 		System.out.println("2 step pawn move not at the start (expected false): " + pawn2.isLegalMove(new Position("c5")));
 		System.out.println("1 step pawn move (expected true): " + pawn2.isLegalMove(new Position("c4")));
