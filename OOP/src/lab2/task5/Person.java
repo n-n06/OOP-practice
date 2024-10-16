@@ -20,6 +20,26 @@ public abstract class Person {
 	private int age;
 	private String name;
 	private Animal pet = null;
+
+
+  public Person(String name) {
+    this.name = name;
+  }
+
+  public Person (String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  public Person(String name, Animal pet) {
+    this(name);
+    this.assignPet(pet);
+  }
+
+  public Person(String name, int age, Animal pet) {
+    this(name, age);
+    this.assignPet(pet);
+  }
 	
 	public void assignPet(Animal pet) {
 		this.pet = pet;
