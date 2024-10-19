@@ -20,6 +20,7 @@ public abstract class Person {
 	private int age;
 	private String name;
 	private Animal pet = null;
+	private boolean canProvideCare = true;
 
 
   public Person(String name) {
@@ -31,18 +32,16 @@ public abstract class Person {
     this.age = age;
   }
 
-  public Person(String name, Animal pet) {
-    this(name);
-    this.assignPet(pet);
-  }
-
-  public Person(String name, int age, Animal pet) {
-    this(name, age);
-    this.assignPet(pet);
-  }
-	
 	public void assignPet(Animal pet) {
-		this.pet = pet;
+		try {
+			if (pet.getDoesRequireCare() && !this.canProvideCare()) {
+				throw new Exception(this.name + " cannot provide care to this pet");
+			} else {
+				this.pet = pet;
+			}
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
 	}
 	
 	public void removePet() {
@@ -53,7 +52,26 @@ public abstract class Person {
 		return this.pet != null;
 	}
 	
+	public boolean canProvideCare() {
+		return this.canProvideCare;
+	}
+	
 	public abstract String getOccupation();
+	
+	public void leavePetWith(Person p) {
+		try {
+			if (!this.hasPet()) {
+				throw new Exception(this.name + " has no pets to leave!");
+			} else {
+				p.assignPet(this.pet);
+			}
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+		}
+		
+	}
+	
+	
 	
 	public String toString() {
 		return "name: " + name + ", age: " + age + ", pet: " + (pet == null ? "none" : pet.toString());
@@ -66,8 +84,7 @@ public abstract class Person {
 		
 		Person p = (Person) o;
 		return this.age == p.age &&
-				this.name.equals(p.name) &&
-				this.pet.equals(p.pet);
+				this.name.equals(p.name);
 		
 	}
 	

@@ -20,7 +20,7 @@ public class Rectangle extends Shape {
 		super.draw();
 		if (color == Color.BLACK) {
 			System.out.println("▬");
-		} else 
+		} else {
 			System.err.println("▬");
 		}		
 	}
