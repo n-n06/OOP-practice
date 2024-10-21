@@ -1,7 +1,5 @@
 package lab2.task1.b;
 
-import lab2.task1.c.Format;
-
 public class DVD extends LibraryItem {
 	private int duration;
 	private double sampleRate;
