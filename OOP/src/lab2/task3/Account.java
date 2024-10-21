@@ -66,6 +66,11 @@ public class Account {
 	}
 	
 	public void transfer(double amount, Account other) {
+		if (this.equals(other)) {
+			System.err.println("Cannot transfer to the same account");
+			return;
+		}
+		
 		boolean withdrawOk = this.withdraw(amount);
 		
 		if (withdrawOk) {

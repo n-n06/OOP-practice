@@ -5,7 +5,7 @@ import java.util.Objects;
 public abstract class Animal {
 	private String name;
 	private int age = 0;
-	private Person owner;
+	private Person owner = null;
 	
 	private boolean doesRequireCare = false;
 	
@@ -62,15 +62,19 @@ public abstract class Animal {
 	
 	public boolean equals(Object o) {
 		if (o == null) return false;
-		if (this == null) return true;
+		if (this == o) return true;
 		if (this.getClass() != o.getClass()) return false;
 		
+		
+		
 		Animal a = (Animal) o;
-		return this.age == a.age && this.name.equals(a.name) && this.doesRequireCare == a.doesRequireCare;
+		return this.age == a.age && 
+				this.name.equals(a.name) && 
+				this.doesRequireCare == a.doesRequireCare;
 	}
 	
 	public int hashCode() {
-		return Objects.hash(age, name);
+		return Objects.hash(age, name, doesRequireCare);
 	}
 
 }

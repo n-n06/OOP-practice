@@ -1,6 +1,5 @@
 package lab2.task5;
 
-import java.util.Objects;
 
 public class Cat extends Animal {
 	
@@ -22,6 +21,6 @@ public class Cat extends Animal {
 	}
 
 	public String toString() {
-		return "Dog: " + super.toString();
+		return "Cat: " + super.toString();
 	}
 }

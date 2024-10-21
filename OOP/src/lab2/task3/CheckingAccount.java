@@ -41,13 +41,20 @@ public class CheckingAccount extends Account {
 	}
 	
 	public boolean deposit(double amount) {
-		numOfTransactions+=1;
-		return super.deposit(amount);
+		if (super.deposit(amount)) {
+			numOfTransactions+=1;
+			return true;
+		}
+		return false;
+
 	}
 	
 	public boolean withdraw(double amount) {
-		numOfTransactions+=1;
-		return super.withdraw(amount);
+		if (super.withdraw(amount)) {
+			numOfTransactions+=1;
+			return true;
+		}
+		return false;
 	}
 	
 //	public boolean deposit(double amount) {

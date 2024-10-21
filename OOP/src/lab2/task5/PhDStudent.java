@@ -4,9 +4,12 @@ import java.util.Objects;
 
 public class PhDStudent extends Student {
 	private String fieldOfResearch;
-	private boolean canProvideCare = false;
 
 //	int numOfPublications = 0;
+	
+	{
+		this.setCare(false);
+	}
 
 	public PhDStudent(String name) {
 		super(name);
@@ -44,7 +47,7 @@ public class PhDStudent extends Student {
 	}
 	
 	public String toString() {
-		return "PhD" + super.toString() + ", number of publications: " + this.fieldOfResearch;
+		return "PhD" + super.toString() + ", field of study: " + this.fieldOfResearch;
 	}
 	
 	public boolean equals(Object o) {

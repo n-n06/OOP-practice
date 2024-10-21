@@ -13,6 +13,10 @@ public class PersonRegistry {
 		v = people;
 	}
 	
+	public Vector<Person> getRegistry() {
+		return v;
+	}
+	
 	public void addPerson(Person p) {
 		v.add(p);
 	}
@@ -39,6 +43,14 @@ public class PersonRegistry {
 			}
 		}
 		return new_v;
+	}
+	
+	public void print() {
+		System.out.println(this.toString());
+	}
+	
+	public String toString() {
+		return v.toString();
 	}
 }
 

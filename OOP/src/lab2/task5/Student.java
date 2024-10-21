@@ -29,7 +29,7 @@ public class Student extends Person {
 
 	@Override
 	public String getOccupation() {
-		return school.toString();
+		return school.toString() + " student";
 	}
 	
 	public String toString() {

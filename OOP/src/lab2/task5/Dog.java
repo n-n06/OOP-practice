@@ -52,7 +52,7 @@ public class Dog extends Animal {
 		if (!super.equals(o)) return false;
 		
 		Dog a = (Dog) o;
-		return a.breed.endsWith(this.breed);
+		return a.breed.equals(this.breed);
 	}
 	
 	public int hashCode() {

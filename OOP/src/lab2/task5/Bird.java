@@ -3,7 +3,7 @@ package lab2.task5;
 import java.util.Objects;
 
 public class Bird extends Animal {
-	private int flightHeight = 0; //heikyuu reference))
+	private int flightHeight = 0; //haikyuu reference))
 	
 	public Bird() {
 		
@@ -36,7 +36,7 @@ public class Bird extends Animal {
 	}
 	
 	public String toString() {
-		return "Bird: " + super.toString();
+		return "Bird: " + super.toString() + ", flies up to: " + this.flightHeight;
 	}
 	
 	public boolean equals(Object o) {

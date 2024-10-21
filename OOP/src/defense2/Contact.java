@@ -6,7 +6,7 @@ public class Contact {
 	private int id;
 	private String name;
 	private String email;
-	private String phoneN
+	private String phoneNumber;
 	
 	private static Vector<Contact> contacts; 
 	
