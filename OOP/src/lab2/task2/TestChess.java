@@ -2,7 +2,7 @@ package lab2.task2;
 
 public class TestChess {
 	public static void main(String[] args) {
-		Pawn pawn1 = new Pawn(new Position("c2"));
+		Pawn pawn1 = new Pawn(new Position("c0"));
 		Pawn pawn2 = new Pawn(new Position("c3"));
 		
 		

@@ -78,7 +78,7 @@ public class DVD extends LibraryItem {
 	public boolean equals(Object o) {
 		if (!super.equals(o)) return false;
 		DVD d = (DVD) o;
-		return this.duration == d.duration && this.sampleRate == d.duration && this.format == d.format;
+		return this.duration == d.duration && this.sampleRate == d.duration && this.format.equals(d.format);
 	}
 	
 }
