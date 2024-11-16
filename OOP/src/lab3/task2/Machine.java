@@ -7,7 +7,6 @@ public abstract class Machine implements Moveable {
 	private int yearProduced;
 	private EnergyType energy;
 	private double x = 0, y = 0;
-	private double velocity = 0;
 	
 	//constr
 	public Machine() {
@@ -96,7 +95,7 @@ public abstract class Machine implements Moveable {
 	
 	//overrides
 	@Override
-	public void move(double dx, double dy, double time) {
+	public void move(double dx, double dy) {
 		this.x += dx;
 		this.y += dy;
 	}

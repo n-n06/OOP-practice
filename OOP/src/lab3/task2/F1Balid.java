@@ -4,8 +4,8 @@ public class F1Balid extends Machine implements CanAccelerate {
 	private double ax, ay;
 	
 	@Override
-	public void move(double dx, double dy, double time) {
-		
+	public void move(double dx, double dy) {
+		super.move(dx + ax, dy + ay);
 	}
 
 	@Override
