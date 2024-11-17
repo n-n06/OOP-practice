@@ -1,6 +1,6 @@
 package practice2;
 
-public class Time {
+public class Time implements Comparable<Time> {
 	private int hour = 0;
 	private int minute = 0;
 	private int second = 0;
@@ -63,6 +63,19 @@ public class Time {
 	}
 
 	public String toString() {
-		return toStandard();
+		return toUniversal();
+	}
+
+	@Override
+	public int compareTo(Time o) {
+		int hourComp = Integer.compare(this.hour, o.hour);
+		if (hourComp == 0) {
+			int minComp = Integer.compare(this.minute, o.minute);
+			if (minComp == 0) {
+				return Integer.compare(this.second, o.second);
+			}
+			return minComp;
+		} 
+		return hourComp;
 	}
 }

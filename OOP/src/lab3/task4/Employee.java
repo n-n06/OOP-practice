@@ -89,7 +89,7 @@ public class Employee extends Person implements Comparable <Employee>, Cloneable
 	@Override
 	public Object clone() throws CloneNotSupportedException {
 		Employee employeeClone =  (Employee) super.clone();
-		employeeClone.hireDate = new Date();
+		employeeClone.hireDate = (Date) this.hireDate.clone();
 		return employeeClone;
 	}
 	
