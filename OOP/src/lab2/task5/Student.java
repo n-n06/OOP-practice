@@ -2,7 +2,7 @@ package lab2.task5;
 
 import java.util.Objects;
 
-public class Student extends Person {
+public class Student extends Person implements CanGetDiscount {
 	private School school;
 	
 	public Student(String name) {
@@ -46,5 +46,16 @@ public class Student extends Person {
 	public int hashCode() {
 		return super.hashCode() + Objects.hash(school);
  	}
+
+	@Override
+	public double getTaxWithDiscount(double initialTax) {
+		if (getAge() < 18) {
+			return 0;
+		}
+		return initialTax * 0.75;
+	}
+
+
+	
 
 }

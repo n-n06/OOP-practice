@@ -60,4 +60,9 @@ public class PhDStudent extends Student {
 		return super.hashCode() + Objects.hash(this.fieldOfResearch);
 	}
 	//not allowed to have dogs
+	
+	@Override
+	public double getTaxWithDiscount(double initialTax) {
+		return Math.max(super.getTaxWithDiscount(initialTax) - 10, 0);
+	}
 }

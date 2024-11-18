@@ -7,6 +7,7 @@ import java.util.Objects;
  * 2. leave pets to others done
  * 
  * */
+import java.util.Vector;
 
 /*
  * TODO:
@@ -18,12 +19,29 @@ import java.util.Objects;
 
 
 
-public abstract class Person {
+public abstract class Person implements Cloneable, Comparable<Person>, CanBeCalled {
 	private int age;
 	private String name;
 	private HashSet<Animal> pets = new HashSet<>();
 	private boolean canProvideCare = true;
 	private Person petsHolder = null;
+	
+	private double balance = 0.0;
+	private boolean payedTaxes = true;
+	
+	private static Vector<Person> allPeople = new Vector<>();
+	
+	{
+		allPeople.add(this);
+	}
+	
+	public static Vector<Person> gettAllPeople() {
+		return allPeople;
+	}
+	
+	public Person() {
+		
+	}
 
 
   public Person(String name) {
@@ -35,6 +53,60 @@ public abstract class Person {
     this.age = age;
   }
   
+  	
+  	public int getAge() {
+		return age;
+	}
+  	
+  	public String getName() {
+		return name;
+	}
+  	
+  	public void setAge(int age) {
+		this.age = age;
+	}
+  	
+  	public void setName(String name) {
+		this.name = name;
+	}
+  	
+  	public double getBalance() {
+		return balance;
+	}
+  	
+  	public void addToBalance(double amount) {
+  		if (amount > 0) {
+  			this.balance += amount;
+  		}
+  	}
+  	
+  	public void payTax(TaxMan t) {
+  		int numberOfPets = 0;
+  		for (Animal pet : pets) {
+  			if (pet.getOwner().equals(this)) {
+  				numberOfPets++;
+  			}
+  		}
+  		
+  		
+  		double tax = numberOfPets * 100;
+  		if (this instanceof CanGetDiscount) {
+  			CanGetDiscount c = (CanGetDiscount) this;
+  			tax = c.getTaxWithDiscount(tax);
+  		}
+  		if (balance - tax >= 0) {
+  			balance -= tax;
+  			if (!payedTaxes) {
+  				this.retrievePetFrom(t);
+  				payedTaxes = true;
+  			}
+  		}
+  		else {
+  			payedTaxes = false;
+  			this.leavePetWith(t);
+  		}
+  	}
+  
   	public HashSet<Animal> getPets() {
   		return this.pets;
   	}
@@ -43,6 +115,8 @@ public abstract class Person {
 		try {
 			if (pet.getDoesRequireCare() && !this.canProvideCare()) {
 				throw new Exception(this.name + " cannot provide care to this pet");
+			} else if (!this.payedTaxes) {
+				throw new Exception(this.name + " has not payed their taxes. Cannot assign pet to them for now");
 			} else {
 				this.pets.add(pet);
 				if(pet.getOwner() == null) { //we only set owner on the very first assignment
@@ -123,7 +197,7 @@ public abstract class Person {
 	
 	
 	public String toString() {
-		return "name: " + name + ", age: " + age + ", pets: " + pets.toString();
+		return "name: " + name + ", age: " + age + String.format(", balance: %.2f", this.balance) + ", pets: " + pets.toString();
 	}
 	
 	public boolean equals(Object o) {
@@ -141,5 +215,20 @@ public abstract class Person {
 		return Objects.hash(age, name, pets, canProvideCare);
 	}
 	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		Person p = (Person) super.clone();
+		p.pets = (HashSet<Animal>) this.pets.clone();
+		return p;
+	}
+	
+	@Override
+	public int compareTo(Person p) {
+		int nameCompare = this.name.compareTo(p.name);
+		if (nameCompare == 0) {
+			return Integer.compare(this.age, p.age);
+		}
+		return nameCompare;
+	}
 	
 }

@@ -1,13 +1,23 @@
 package lab2.task5;
 
 import java.util.Objects;
+import java.util.Vector;
 
-public abstract class Animal {
+public abstract class Animal implements Comparable<Animal>, Cloneable, CanBeCalled {
 	private String name;
 	private int age = 0;
 	private Person owner = null;
 	
 	private boolean doesRequireCare = false;
+	private static Vector<Animal> allAnimals = new Vector<>();
+	
+	{
+		allAnimals.add(this);
+	}
+	
+	public static Vector<Animal> getAllAnimals() {
+		return allAnimals;
+	}
 	
 	public Animal() {
 		
@@ -75,6 +85,24 @@ public abstract class Animal {
 	
 	public int hashCode() {
 		return Objects.hash(age, name, doesRequireCare);
+	}
+	
+	@Override
+	public Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
+	
+	@Override
+	public int compareTo(Animal a) {
+		int careCompare = Boolean.compare(this.doesRequireCare, a.doesRequireCare);
+		if (careCompare == 0) {
+			int nameCompare = this.name.compareTo(a.name);
+			if (nameCompare == 0) {
+				return Integer.compare(this.age, a.age);
+			}
+			return nameCompare;
+		}
+		return careCompare;
 	}
 
 }

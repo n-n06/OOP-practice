@@ -5,6 +5,9 @@ import java.util.Objects;
 public class Employee extends Person {
 	private String job;
 	
+	public Employee() {
+		
+	}
 	
 	public Employee(String name) {
 	  super(name);
